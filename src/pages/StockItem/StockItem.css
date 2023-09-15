@@ -1,0 +1,31 @@
+@import url('./../../index.css');
+
+.content-stock-item {
+    display: flex;
+    flex-direction: row;
+}
+.title-stock-item {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.header-stock-item {
+    display:  flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.item-box {
+    width: max-content;
+    height: max-content;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--black-default);
+    gap: .625rem;
+    border-radius: .5rem;
+    box-shadow: inset;
+}
+
+.createAt, .updateAt, .discription-item {
+    margin: 1em;
+}

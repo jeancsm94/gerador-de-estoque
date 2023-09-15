@@ -1,0 +1,65 @@
+@import url('./../../index.css');
+h1 {
+    margin: 1rem;
+    margin-left: 0 ;
+}
+
+.dashboard-stock{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.card-dashboard {
+    width: 45%;
+    height: max-content;
+    padding: 1rem;
+    background-color: var(--black-default);
+    border-radius: 8px;    
+}
+
+.amount-stock {
+    font-size: 4rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.cards {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-bar-items {
+    background-color: var(--black-default);
+    padding: 2rem;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 70%  30%;
+    font-weight: 700;
+    text-align: left;
+}
+.nav-bar-items-final {
+    background-color: var(--black-default);
+    padding: 2rem;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 50%  25% 25%;
+    font-weight: 700;
+    text-align: left;
+}
+
+.list-group-final {
+    padding: 2rem;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 50%  25% 25%;
+}
+
+.list-group {
+    padding: 2rem;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 70%  30%;
+}
+
