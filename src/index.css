@@ -82,11 +82,29 @@ header {
   color: #ffffff;
   font-size: 1.2rem;
 }
+
 footer, main {
   max-width: 95vw;
   min-height: max-content;
   margin: 1rem auto;
+}
 
+input, textarea {
+  background-color: #1C1A1D;
+  border: none;
+  border-radius: .5rem;
+}
+
+input {
+  width: 20rem;
+  height: 3rem;
+  margin: .1rem 0;
+}
+
+label {
+  font-size: larger;
+  font-weight: 500;
+  margin: .5rem 0;
 }
 
 .color-black {
@@ -101,6 +119,23 @@ footer, main {
 }
 .btn-red {
   background-color: var(--btn-red);
+}
+.first-section, .second-section, .footer-section {
+  max-width: max-content;
+  display: flex;
+  flex-direction: row;
+  margin-left: 100px;
+}
+
+.second-section {
+  width: 90%;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 @media (prefers-color-scheme: light) {

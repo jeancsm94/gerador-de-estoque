@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './NewItem.css'
 
 
 export function NewItem() {
@@ -23,18 +23,20 @@ export function NewItem() {
               <input type="number" name="price" id="price" />
             </div>
             <div className='input'>
-              <label htmlFor="categori">Nome</label>
+              <label htmlFor="categori">Categoria</label>
               <input type="text" name="categori" id="categoria" />
             </div>
           </div>
           <div className="second-section">
-          <div className='input'>
+            <div className='input'>
               <label htmlFor="description">Descrição</label>
-              <input type="text" name="description" id="description" />
+              <textarea name="description" id="description"></textarea>
             </div>
           </div>
 
-          <button className='btn-blue' type="submit">Salvar</button>
+          <div className="footer-section">
+            <button className='btn-blue btn-form' type="submit">Salvar</button>
+          </div>
         </div>
       </form>
     </div>
