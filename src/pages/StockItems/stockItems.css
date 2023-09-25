@@ -2,7 +2,7 @@
 
 .menu-items {
     width: 100%;
-    margin: 1rem;    
+    margin: 1rem;
 }
 
 .menu-items > span {
@@ -19,4 +19,14 @@
     display: flex;
     flex-direction:  row;
     gap: 1rem;
+}
+
+.item-link {
+    padding: 1rem 1rem;
+    color: var(--white);
+}
+
+.item-link:hover {
+    border-bottom: 1px solid;
+    color: var(--white);
 }

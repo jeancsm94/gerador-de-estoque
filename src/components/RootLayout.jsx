@@ -5,7 +5,7 @@ export default function App() {
     return (
         <>
             <header>
-                <h2>Counter App</h2>
+                <h2><Link to="/" className="title-site">Counter App</Link></h2>
                 <nav className="menu">
                     {/* <button>Inicio</button>
                     <button>Items</button> */}

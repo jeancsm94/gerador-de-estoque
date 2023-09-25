@@ -138,6 +138,10 @@ label {
   margin: 1rem;
 }
 
+.title-site {
+  color: var(--btn-white);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

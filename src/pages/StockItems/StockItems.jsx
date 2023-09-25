@@ -1,17 +1,28 @@
 import React, { useState } from "react";
 import './stockItems.css';
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
+
+function verifyLink() {
+    const link = window.location.pathname;
+    return link.length > 6;
+}
 
 export default function StockItems() {
-    const [ firstPage, setFirstPage ] = useState(false);
+    const [ firstPage, setFirstPage ] = useState(verifyLink());
+
+    const clickLink = () => {
+        setFirstPage(false);
+    }
+
+    const products = useLoaderData();
     return (
         <>
             <section>
                 <h1 className="title">Stock Items</h1>
 
                 <nav className="menu-items">
-                    <button onClick={() => setFirstPage(false)}>Todos os itens</button>
-                    <Link to="/items/edit" onClick={() => setFirstPage(!firstPage)} className="btn">Novo item</Link>
+                    <Link className="item-link" onClick={() => clickLink()}>Todos os itens</Link>
+                    <Link className="item-link" to="/items/edit" onClick={() => setFirstPage(!firstPage)}>Novo item</Link>
                 </nav>
                 <hr/>
                 { firstPage ? <Outlet /> :
@@ -26,32 +37,28 @@ export default function StockItems() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="list-group stock">
-                                    <td>6fdeb9e1-5072-4b94-88b6-5b54d824c814</td>
-                                    <td>7 Wonders</td>
-                                    <td>7 Unid.</td>
-                                    <td>Jogos</td>
-                                    <td>
-                                        <div className="menu-actions">
-                                            <Link to={`edit/6fdeb9e1-5072-4b94-88b6-5b54d824c814`} onClick={() => setFirstPage(!firstPage)} className="btn btn-blue color-black">Ver</Link>
-                                            <button className="btn btn-white color-black">Atualizar</button>
-                                            <button className="btn btn-red color-black">Excluir</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr className="list-group stock">
-                                    <td>6fdeb9e1-5072-4b94-88b6-5b54d824c814</td>
-                                    <td>7 Wonders</td>
-                                    <td>7 Unid.</td>
-                                    <td>Jogos</td>
-                                    <td>
-                                        <div className="menu-actions">
-                                            <Link to={`edit/6fdeb9e1-5072-4b94-88b6-5b54d824c814`} onClick={() => setFirstPage(!firstPage)} className="btn btn-blue color-black">Ver</Link>
-                                            <button className="btn-white color-black">Atualizar</button>
-                                            <button className="btn-red color-black">Excluir</button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                {
+                                    products.map((p) => {
+                                        return (
+                                        <tr className="list-group stock">
+                                            <td>{p.id}</td>
+                                            <td>{p.title}</td>
+                                            <td>{p.rating.count}</td>
+                                            <td>{p.category}</td>
+                                            <td>
+                                                <div className="menu-actions">
+                                                    <Link to={`edit/${p.id}`} onClick={() => setFirstPage(!firstPage)} className="btn btn-blue color-black">Ver</Link>
+                                                    <button className="btn btn-white color-black">Atualizar</button>
+                                                    <button className="btn btn-red color-black">Excluir</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                            )
+                                    }) ??
+                                    <tr>
+                                        <td>Nenum produto encontrado!</td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                         }

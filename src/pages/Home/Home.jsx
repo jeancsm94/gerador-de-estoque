@@ -1,8 +1,16 @@
-import React from "react";
-import './home.css'
+import React, { useState, useEffect} from "react";
+
+import { Link, useLoaderData } from "react-router-dom";
+import './home.css';
+import './../../index.css';
 
 
 export default function Home() {
+
+    const lists = useLoaderData();
+    const productsNew = lists[0];
+    const productsLow = lists[1];
+    
     return(
         <>
             <section>
@@ -27,14 +35,18 @@ export default function Home() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="list-group">
-                                    <td>7 Wonders</td>
-                                    <td><button className="btn-white color-black">Ver</button></td>
+                                { productsNew.map( p => {
+                                    console.log(productsNew)
+                                    return (
+                                        <tr className="list-group" key={p.id}>
+                                            <td>{p.title}</td>
+                                            <td><Link className="btn btn-white color-black" to={`items/edit/${p.id}`}>Ver</Link></td>
+                                        </tr> 
+                                    ) }) ??
+                                <tr>
+                                    <td>Nenum produto encontrado!</td>
                                 </tr>
-                                <tr className="list-group">
-                                    <td>7 Wonders</td>
-                                    <td><button className="btn-white color-black">Ver</button></td>
-                                </tr>
+                                }
                             </tbody>
                         </table>
                     </section>
@@ -58,16 +70,18 @@ export default function Home() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="list-group-final">
-                                    <td>7 Wonders</td>
-                                    <td>7</td>
-                                    <td><button className="btn-white">Ver</button></td>
+                            { productsLow.map( p => {
+                                    console.log(productsLow)
+                                    return (
+                                        <tr className="list-group" key={p.id}>
+                                            <td>{p.title}</td>
+                                            <td><Link className="btn btn-white color-black" to={`items/edit/${p.id}`}>Ver</Link></td>
+                                        </tr> 
+                                    ) }) ??
+                                <tr>
+                                    <td>Nenum produto abaixo de 10</td>
                                 </tr>
-                                <tr className="list-group-final">
-                                    <td>7 Wonders</td>
-                                    <td>6</td>
-                                    <td><button className="btn-white">Ver</button></td>
-                                </tr>
+                                }
                             </tbody>
                         </table>
                     </section>

@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import StockItems from "./pages/StockItems/StockItems";
 import StockItem from "./pages/StockItem/StockItem";
 import { NewItem } from "./pages/NewItem/NewItem";
+import loadProduct, { loadHomeProducts, loadListProducts } from "./loaders/products";
 
 export const router = createBrowserRouter([
     {
@@ -13,16 +14,18 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home />
+                element: <Home />,
+                loader: loadHomeProducts
             },
             {
                 path: "/items/",
                 element: <StockItems />,
+                loader: loadListProducts,
                 children: [
                     {
                         path: "edit/:id",
-                        // path: "/items/:id", /items/:id
-                        element: <StockItem />
+                        element: <StockItem />,
+                        loader: loadProduct
                     },
                     {
                         path: "edit",
