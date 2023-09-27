@@ -1,6 +1,6 @@
 import React from 'react';
 import './StockItem.css';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 export default function StockItem() {
     const product = useLoaderData();
@@ -9,7 +9,7 @@ export default function StockItem() {
         <div className="stock-item">
             <div className="header-stock-item">
                 <h1 className='title-stock-item'>{product.title}</h1>
-                <button className=" btn-white color-black">Atualizar</button>
+                <Link className="btn btn-white color-black" to={`edit/${product.id}`}>Atualizar</Link>
                 <button className="btn-red color-black">Excluir</button>
             </div>
             <div className="content-stock-item">

@@ -5,3 +5,10 @@
 .btn-form {
     margin-left: 1.875rem;
 }
+input,textarea {
+    padding: 0.5rem;
+}
+
+textarea {
+    width: 80vw;
+}
